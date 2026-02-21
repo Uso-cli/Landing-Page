@@ -47,9 +47,9 @@ const Footer = () => {
                             padding: 0,
                             margin: 0
                         }}>
-                            {['Home', 'Features', 'Install'].map(item => (
-                                <li key={item}>
-                                    <a href={item === 'Home' ? '#' : `#${item.toLowerCase()}`} style={{
+                            {[{ label: 'Home', href: '#' }, { label: 'Features', href: '#features' }, { label: 'Install', href: 'https://www.npmjs.com/package/@xaidenlabs/uso' }, { label: 'GitHub', href: 'https://github.com/Uso-cli' }].map(item => (
+                                <li key={item.label}>
+                                    <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined} style={{
                                         color: 'white',
                                         textDecoration: 'none',
                                         fontSize: '0.875rem',
@@ -57,7 +57,7 @@ const Footer = () => {
                                         opacity: 0.7,
                                         transition: 'opacity 0.2s'
                                     }} className="nav-link">
-                                        {item}
+                                        {item.label}
                                     </a>
                                 </li>
                             ))}
