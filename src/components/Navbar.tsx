@@ -18,7 +18,7 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Features', href: '#features' },
         { name: 'Install', href: 'https://www.npmjs.com/package/@xaidenlabs/uso' },
-        { name: 'Community', href: 'https://github.com/xaidenlabs/uso' },
+        { name: 'Community', href: 'https://github.com/Uso-cli' },
     ];
 
     return (
@@ -40,7 +40,7 @@ const Navbar = () => {
                         </a>
                     ))}
                     <a
-                        href="https://github.com"
+                        href="https://github.com/Uso-cli"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="nav-link"

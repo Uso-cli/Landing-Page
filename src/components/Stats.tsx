@@ -2,9 +2,9 @@
 import { motion } from 'framer-motion';
 
 const stats = [
-    { label: 'Deploys Automated', value: '10k+' },
-    { label: 'Hours Saved', value: '50,000+' },
-    { label: 'Happy Developers', value: '1,200+' },
+    { label: 'Deploys Automated', value: '121+' },
+    { label: 'Hours Saved', value: '5,000+' },
+    { label: 'Happy Developers', value: '120+' },
     { label: 'Setup Time', value: '< 2 mins' },
 ];
 
