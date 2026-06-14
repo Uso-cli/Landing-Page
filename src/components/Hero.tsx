@@ -19,12 +19,12 @@ const Hero = () => {
                     {/* Badge */}
                     <div className="hero-badge" style={{ marginBottom: '1rem' }}>
                         <span style={{ display: 'block', width: 8, height: 8, borderRadius: '50%', background: 'var(--brand-light)' }}></span>
-                        <span>v1.0.3 Now Available</span>
+                        <span>v1.0.3 • AI Agent Available</span>
                     </div>
 
                     {/* Headline */}
                     <h1 className="hero-title" style={{ marginBottom: '1rem' }}>
-                        The Magic Button for <br />
+                        The Autonomous Agent for <br />
                         <span className="text-brand-gradient">
                             Solana Development
                         </span>
@@ -32,7 +32,7 @@ const Hero = () => {
 
                     {/* Subtext */}
                     <p className="hero-subtitle" style={{ marginBottom: '2rem' }}>
-                        One command to set up Rust, Solana, and Anchor. Stop fighting configuration files and start building.
+                        One command to install Rust, Solana, and Anchor. One prompt to automatically build, test, and deploy with an intelligent ReAct FSM loop.
                     </p>
 
                     {/* Code Snippet Preview (Now above buttons and static) */}
@@ -49,18 +49,26 @@ const Hero = () => {
                             <div style={{ marginLeft: '1rem', fontSize: '0.8rem', color: '#666' }}>terminal</div>
                         </div>
                         <div className="terminal-body text-left" style={{ fontFamily: 'monospace', padding: '1rem' }}>
-                            <div style={{ color: '#666' }}># Install Globally</div>
+                            <div style={{ color: '#666' }}># 1. Install & Setup Environment</div>
                             <div style={{ color: 'white' }}>
                                 <span style={{ color: '#a855f7' }}>npm</span> install -g <span style={{ color: '#4ade80' }}>@xaidenlabs/uso</span>
                             </div>
-                            <div style={{ color: '#666', marginTop: '1rem' }}># Setup Environment</div>
-                            <div style={{ color: 'white' }}>
+                            <div style={{ color: 'white', marginTop: '0.25rem' }}>
                                 <span style={{ color: '#eab308' }}>uso</span> init
                             </div>
-                            <div style={{ color: '#666', marginTop: '0.5rem' }}>{`> Installing Rust...`}</div>
-                            <div style={{ color: '#666' }}>{`> Installing Solana CLI...`}</div>
-                            <div style={{ color: '#666' }}>{`> Installing Anchor...`}</div>
-                            <div style={{ color: '#4ade80', marginTop: '0.5rem' }}>{`✔ Environment Ready! 🚀`}</div>
+                            <div style={{ color: '#4ade80', marginTop: '0.25rem' }}>{`✔ Environment Ready! 🚀`}</div>
+
+                            <div style={{ color: '#666', marginTop: '1.25rem' }}># 2. Hand off your devops to the Agent</div>
+                            <div style={{ color: 'white' }}>
+                                <span style={{ color: '#eab308' }}>uso</span> agent <span style={{ color: '#4ade80' }}>"Deploy my program to devnet"</span>
+                            </div>
+                            <div style={{ color: '#666', marginTop: '0.5rem' }}>── 🧠 Planning ──</div>
+                            <div style={{ color: '#3b82f6' }}>{`💭 I need to build the program first, then deploy it.`}</div>
+                            <div style={{ color: '#666', marginTop: '0.5rem' }}>── ⚡ Executing ──</div>
+                            <div style={{ color: '#eab308' }}>{`🔧 anchor_build`}</div>
+                            <div style={{ color: '#4ade80' }}>{`  ✅ Build successful. 128 KB compiled.`}</div>
+                            <div style={{ color: '#eab308', marginTop: '0.25rem' }}>{`🔧 anchor_deploy`}</div>
+                            <div style={{ color: '#4ade80', marginBottom: '0.5rem' }}>{`  ✅ Program ID: 8XF... Deploy successful.`}</div>
                         </div>
                     </div>
                 </motion.div>

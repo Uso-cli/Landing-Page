@@ -1,7 +1,15 @@
 import { motion } from 'framer-motion';
-import { Workflow, Layers, Activity, Cpu, ShieldCheck, Monitor, Play, Wallet } from 'lucide-react';
+import { Workflow, Layers, Activity, Cpu, ShieldCheck, Monitor, Play, Wallet, Bot } from 'lucide-react';
 
 const features = [
+    {
+        icon: <Bot size={24} />,
+        iconColor: '#a855f7',
+        iconBg: 'rgba(168,85,247,0.12)',
+        title: 'Autonomous AI Agent',
+        desc: 'Give USO a goal and it will plan, execute, and self-heal automatically. Powered by a ReAct FSM loop and your choice of LLM (Ollama, GitHub Models, Gemini, OpenAI).',
+        badge: 'uso agent "<goal>"',
+    },
     {
         icon: <Workflow size={24} />,
         iconColor: '#818cf8',

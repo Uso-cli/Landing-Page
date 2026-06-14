@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import {
     Terminal, Copy, Check, Zap, ShieldCheck, AlertTriangle,
     FolderPlus, Monitor, Rocket, Wallet, Play, Trash2,
-    Search, BookOpen, List
+    Search, BookOpen, List, Bot
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -21,6 +21,7 @@ const Docs = () => {
     const sections = [
         { id: 'intro', title: 'Introduction', icon: <BookOpen size={14} /> },
         { id: 'install', title: 'Installation', icon: <Terminal size={14} /> },
+        { id: 'agent', title: 'AI Agent', icon: <Bot size={14} /> },
         { id: 'windows-prereqs', title: 'Windows Setup', icon: <ShieldCheck size={14} /> },
         { id: 'quickstart', title: 'Quick Start', icon: <Zap size={14} /> },
         { id: 'stealth-wsl', title: 'Stealth WSL Mode', icon: <Monitor size={14} /> },
@@ -167,6 +168,8 @@ const Docs = () => {
                                 <tbody>
                                     {[
                                         ['uso init', 'Install full dev stack (Rust + Solana + Anchor)'],
+                                        ['uso agent "<goal>"', 'Run the autonomous AI Agent'],
+                                        ['uso agent-config', 'Configure Agent LLMs'],
                                         ['uso init --wsl', 'Stealth WSL engine install (Windows)'],
                                         ['uso create <name>', 'Scaffold new Anchor project'],
                                         ['uso build / test / deploy', 'Workflow commands'],
@@ -206,6 +209,39 @@ const Docs = () => {
                         <Warning title="Restart your terminal after install.">
                             <br />PATH changes don't take effect until you open a new terminal window. If {ic('uso')} says "command not found", close and reopen your terminal.
                         </Warning>
+                    </section>
+
+                    {/* ── AI AGENT ── */}
+                    <section id="agent" className="docs-section">
+                        <h2 className="docs-heading">
+                            <span className="docs-icon-box" style={{ color: '#a855f7', background: 'rgba(168,85,247,0.1)' }}><Bot size={22} /></span>
+                            AI Agent
+                        </h2>
+                        <p className="docs-text">
+                            USO includes an autonomous AI Agent powered by ReAct. Instead of running commands manually, tell the agent what you want to achieve, and it will plan, execute, and self-heal automatically.
+                        </p>
+
+                        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: '1.5rem 0 0.75rem', color: 'white' }}>1. Configure LLM</h3>
+                        <p className="docs-text">The agent supports Ollama, GitHub Models, Gemini, and OpenAI.</p>
+                        <CodeBlock lang="bash" copyText="uso agent-config" copyId="ag-conf">
+                            <div style={{ color: '#666', marginBottom: '0.4rem' }}># Local Ollama (Free)</div>
+                            <div style={{ marginBottom: '0.75rem' }}><span style={{ color: '#eab308' }}>ollama</span> pull llama3.1:8b</div>
+                            <div style={{ color: '#666', marginBottom: '0.4rem' }}># GitHub Models (Free with GitHub account)</div>
+                            <div style={{ marginBottom: '0.75rem' }}><span style={{ color: '#eab308' }}>uso</span> agent-config --github-token {'<token>'}</div>
+                            <div style={{ color: '#666', marginBottom: '0.4rem' }}># Gemini or OpenAI</div>
+                            <div><span style={{ color: '#eab308' }}>uso</span> agent-config --gemini-key {'<key>'}</div>
+                        </CodeBlock>
+
+                        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: '1.5rem 0 0.75rem', color: 'white' }}>2. Run the Agent</h3>
+                        <CodeBlock lang="bash" copyText='uso agent "Deploy my program"' copyId="ag-run">
+                            <span style={{ color: '#eab308' }}>uso</span> agent <span style={{ color: '#4ade80' }}>"Deploy my program to devnet"</span>
+                        </CodeBlock>
+                        
+                        <div className="docs-grid" style={{ marginTop: '1.5rem' }}>
+                            <MiniCard title="Fix Environment" cmd='uso agent "Fix missing tools"' copyId="ag-ex1" />
+                            <MiniCard title="Build & Test" cmd='uso agent "Run tests"' copyId="ag-ex2" />
+                            <MiniCard title="Deploy" cmd='uso agent "Deploy to devnet"' copyId="ag-ex3" />
+                        </div>
                     </section>
 
                     {/* ── WINDOWS PREREQUISITES ── */}
